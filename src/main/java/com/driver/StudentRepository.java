@@ -84,6 +84,12 @@ public class StudentRepository {
     }
 
     void deleteAllTeachers() {
+        for(List<Student> studentList : pairHashMap.values()){
+            for (Student student : studentList) {
+                if(studentHashMap.containsKey(student.getName()))
+                    studentHashMap.remove(student.getName());
+            }
+        }
         teacherHashMap = new HashMap<>();
         pairHashMap = new HashMap<>();
     }
